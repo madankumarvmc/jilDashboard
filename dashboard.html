@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>COIL Tracking Dashboard</title>
+  <style>
+    /* Full-bleed, no scrollbars */
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #ffffff; /* set your brand background */
+    }
+    .wrapper {
+      position: fixed;
+      inset: 0;            /* top:0 right:0 bottom:0 left:0 */
+      display: grid;
+      place-items: center; /* center iframes if you add max sizes */
+    }
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <iframe
+      src="https://lookerstudio.google.com/embed/reporting/4feb571f-30a6-4f0f-9a82-33befc2fdae9/page/C4QHF?rm=minimal"
+      frameborder="0"
+      allowfullscreen
+      loading="lazy"
+      sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+    </iframe>
+  </div>
+</body>
+</html>

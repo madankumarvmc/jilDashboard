@@ -4,35 +4,74 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>COIL Tracking Dashboard</title>
-  <style>
-    /* Full-bleed, no scrollbars */
-    html, body {
-      height: 100%;
-      margin: 0;
-      background: #ffffff; /* set your brand background */
-    }
-    .wrapper {
-      position: fixed;
-      inset: 0;            /* top:0 right:0 bottom:0 left:0 */
-      display: grid;
-      place-items: center; /* center iframes if you add max sizes */
-    }
-    iframe {
-      width: 100vw;
-      height: 100vh;
-      border: 0;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="wrapper">
+  <div class="header">
+    <h1>COIL Tracking Dashboard</h1>
+  </div>
+  
+  <div class="filter-controls">
+    <div class="filter-group">
+      <label for="dateRange">Date Range:</label>
+      <select id="dateRange">
+        <option value="">All Time</option>
+        <option value="7">Last 7 Days</option>
+        <option value="30">Last 30 Days</option>
+        <option value="90">Last 90 Days</option>
+        <option value="custom">Custom Range</option>
+      </select>
+    </div>
+    
+    <div class="filter-group">
+      <label for="department">Department:</label>
+      <select id="department">
+        <option value="">All Departments</option>
+        <option value="production">Production</option>
+        <option value="quality">Quality Control</option>
+        <option value="logistics">Logistics</option>
+        <option value="sales">Sales</option>
+      </select>
+    </div>
+    
+    <div class="filter-group">
+      <label for="status">Status:</label>
+      <select id="status">
+        <option value="">All Status</option>
+        <option value="active">Active</option>
+        <option value="completed">Completed</option>
+        <option value="pending">Pending</option>
+        <option value="cancelled">Cancelled</option>
+      </select>
+    </div>
+    
+    <div class="filter-group" id="customDateGroup" style="display: none;">
+      <label for="startDate">From:</label>
+      <input type="date" id="startDate">
+      <label for="endDate">To:</label>
+      <input type="date" id="endDate">
+    </div>
+    
+    <button class="apply-filters" onclick="applyFilters()">Apply Filters</button>
+  </div>
+  
+  <div class="auth-message" id="authMessage">
+    Please ensure you're logged into your Google account to view this dashboard.
+  </div>
+  
+  <div class="dashboard-container">
     <iframe
+      id="dashboardFrame"
       src="https://lookerstudio.google.com/embed/reporting/4feb571f-30a6-4f0f-9a82-33befc2fdae9/page/C4QHF?rm=minimal"
       frameborder="0"
       allowfullscreen
       loading="lazy"
-      sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+      sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+      onload="handleIframeLoad()"
+      onerror="handleIframeError()">
     </iframe>
   </div>
+
+  <script src="index.js"></script>
 </body>
 </html>

@@ -6,9 +6,16 @@ html, body {
 }
 .header {
   background: #ffffff;
-  padding: 16px 24px;
+  padding: 1px 24px;
   border-bottom: 1px solid #e0e0e0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.header .logo {
+  height: 60px;
+  width: auto;
 }
 .header h1 {
   margin: 0;
@@ -74,4 +81,34 @@ iframe {
   align-items: center;
   height: 200px;
   color: #666;
+}
+.powered-by {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  text-align: center;
+  z-index: 1000;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.powered-by:hover {
+  opacity: 0.8;
+}
+.powered-text {
+  font-size: 15px;
+  color: white;
+  font-weight: 500;
+  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+  margin-bottom: 2px;
+}
+.company-text {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }
